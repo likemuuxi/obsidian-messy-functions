@@ -1,4 +1,4 @@
-import { Plugin, WorkspaceSidedock, ButtonComponent, addIcon, TFile, Menu, TFolder, Platform, MarkdownView, Editor, App } from 'obsidian';
+import { Plugin, WorkspaceSidedock, ButtonComponent, addIcon, setIcon, TFile, Menu, TFolder, Platform, MarkdownView, Editor, App } from 'obsidian';
 import AutoHideSettingTab from './setting-tab';
 import { AutoHideSettings, DEFAULT_SETTINGS, DEFAULT_FORCE_VIEW_MODE_SETTINGS } from './settings';
 import { cleanMarkdownFormatting, demoteHeadings, promoteHeadings } from './markdown-utils';
@@ -587,7 +587,7 @@ export default class AutoHidePlugin extends Plugin {
 			const parentElement = viewHeaderTitleParent.parentElement;
 			if (parentElement && !parentElement.querySelector('.homepage-button')) {
 				const homeButton = document.createElement('div');
-				homeButton.textContent = 'HomePage';
+				setIcon(homeButton, 'home');
 				homeButton.classList.add('homepage-button');
 				parentElement.insertBefore(homeButton, viewHeaderTitleParent);
 			}
